@@ -1,5 +1,5 @@
 {
-  "name": "@mizchi/next-playground",
+  "name": "@mizchi/next-proto",
   "private": true,
   "scripts": {
     "dev": "next",
