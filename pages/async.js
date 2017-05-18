@@ -4,6 +4,10 @@ import Link from 'next/link'
 import Header from '../components/Header'
 
 export default class Async extends React.Component {
+  props: {
+    stargazers_count: number
+  }
+
   static async getInitialProps() {
     console.log('getInitialProps on Async')
     const res = await fetch('https://api.github.com/repos/zeit/next.js')

@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production babel-node server.js"
+    "build:static": "next export",
+    "start:dev": "babel-node server.js",
+    "start": "next build; NODE_ENV=production babel-node server.js"
   },
   "license": "MIT",
   "dependencies": {
