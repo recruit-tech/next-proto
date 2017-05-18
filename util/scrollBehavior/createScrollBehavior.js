@@ -1,7 +1,8 @@
+/* @flow */
 import ScrollBehavior from 'scroll-behavior'
 import StateStorage from './StateStorage'
 
-export default ({addTransitionHook, shouldUpdateScroll} = {}) => {
+export default ({ addTransitionHook, shouldUpdateScroll }: any = {}) => {
   return new ScrollBehavior({
     addTransitionHook() {
       if (addTransitionHook) {

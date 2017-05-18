@@ -1,1 +1,2 @@
-export default (ms) => new Promise(done => setTimeout(done, ms))
+/* @flow */
+export default (ms: number) => new Promise(done => setTimeout(done, ms))

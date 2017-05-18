@@ -1,3 +1,5 @@
+/* @flow */
+import React from 'react'
 import Link from 'next/link'
 import Header from '../components/Header'
 
@@ -10,11 +12,12 @@ export default class Async extends React.Component {
   }
 
   render() {
-    return <div>
-      <Header/>
-      Welcome to next.js! {this.props.stargazers_count}
-      <div>Hello World. <Link href='/about'><a>About</a></Link></div>
-    </div>
-
+    return (
+      <div>
+        <Header />
+        Welcome to next.js! {this.props.stargazers_count}
+        <div>Hello World. <Link href="/about"><a>About</a></Link></div>
+      </div>
+    )
   }
 }
