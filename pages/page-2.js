@@ -4,12 +4,11 @@ import { compose } from 'recompose'
 import { connect } from 'react-redux'
 import Layout from '../components/Layout'
 import getInitialProps from '../components/hoc/getInitialProps'
-import withReduxProvider from '../components/hoc/withReduxProvider'
-import initStore from '../store'
+import withDefaultProvider from '../components/hoc/withProvider'
 
 export default compose(
   getInitialProps(() => ({ a: 2 })),
-  withReduxProvider(_initialProps => initStore()),
+  withDefaultProvider,
   connect(root => root)
 )(function Page2(props: { a: number, foo: string, dispatch: any }) {
   return (

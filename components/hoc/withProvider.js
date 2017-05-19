@@ -2,17 +2,18 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react'
 import { Provider } from 'react-redux'
+import defaultInitStore from '../../store'
+
+type HoC<P> = Class<React$Component<*, P, *>>
 
 let _store: any = null
-export default function withReduxProvider<P>(
-  initStore: Function
-): Class<React$Component<*, P, *>> => Class<React$Component<*, P, *>> {
+export function withProvider<P>(initStore: Function): HoC<P> => HoC<P> {
   return Wrapped =>
     class ReduxProvider extends React.Component {
       props: P
       constructor(props: P, context: any) {
         if (!_store) {
-          _store = initStore()
+          _store = initStore(props)
         }
         super(props, context)
       }
@@ -25,4 +26,8 @@ export default function withReduxProvider<P>(
         )
       }
     }
+}
+
+export default function withDefaultProvider<P>(Wrapped: HoC<P>): HoC<P> {
+  return withProvider(() => defaultInitStore())(Wrapped)
 }

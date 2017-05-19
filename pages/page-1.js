@@ -4,7 +4,8 @@ import { compose } from 'recompose'
 import { connect } from 'react-redux'
 import Layout from '../components/Layout'
 import getInitialProps from '../components/hoc/getInitialProps'
-import withReduxProvider from '../components/hoc/withReduxProvider'
+// import withDefaultProvider from '../components/hoc/withProvider'
+import { withProvider } from '../components/hoc/withProvider'
 import initStore from '../store'
 
 type PageInitialProps = {
@@ -19,7 +20,8 @@ type RootReducerProps = {
 // const res = await fetch('https://api.github.com/repos/zeit/next.js')
 export default compose(
   getInitialProps((() => ({ a: 1 }): () => PageInitialProps)),
-  withReduxProvider(_initialProps => initStore()),
+  withProvider(_initialProps => initStore()),
+  // withDefaultProvider,
   connect(root => root)
 )(function Page1(props: PageInitialProps & RootReducerProps) {
   return (
