@@ -8,14 +8,18 @@ import withReduxProvider from '../components/hoc/withReduxProvider'
 import initStore from '../store'
 
 export default compose(
-  getInitialProps(() => ({ a: 1 })),
-  withReduxProvider(initStore),
+  getInitialProps(() => ({ a: 2 })),
+  withReduxProvider(_initialProps => initStore()),
   connect(root => root)
-)(function Redux(props: { foo: string }) {
+)(function Page2(props: { a: number, foo: string, dispatch: any }) {
   return (
     <Layout>
-      <h1>Redux</h1>
-      <p>{props.foo || 'none'}</p>
+      <h1>Page 2</h1>
+      <p>{props.a}</p>
+      <p>{props.foo}</p>
+      <button onClick={() => props.dispatch({ type: 'FOO', payload: 'bar' })}>
+        set bar
+      </button>
     </Layout>
   )
 })

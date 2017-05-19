@@ -7,18 +7,11 @@ export default function Header() {
     <header>
       <Link href="/"><a>Index</a></Link>
       /
-      <Link route="about"><a>About</a></Link>
+      <Link route="page-1"><a>Page-1</a></Link>
       /
-      <Link route="async"><a>Async</a></Link>
+      <Link route="page-2"><a>Page-2</a></Link>
       /
       <Link route="scroll"><a>Scroll</a></Link>
-      /
-      <Link route="article" params={{ id: 0 }}><a>Arcticle:0</a></Link>
-      /
-      <Link route="redux-with-wrapper"><a>ReduxWithWrapper</a></Link>
-      /
-      <Link route="redux"><a>Redux</a></Link>
-      <hr />
     </header>
   )
 }

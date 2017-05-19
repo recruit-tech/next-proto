@@ -2,10 +2,10 @@
 import React from 'react'
 import Layout from '../components/Layout'
 
-export default function Index() {
+export default function Scroll() {
   return (
     <Layout>
-      Welcome to next.js!
+      Index
     </Layout>
   )
 }

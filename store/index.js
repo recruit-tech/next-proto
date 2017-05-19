@@ -3,7 +3,6 @@ import logger from 'redux-logger'
 import { createStore, applyMiddleware } from 'redux'
 
 const reducer = (state = { foo: 'bar' }, action) => {
-  console.log('Reduce', action)
   switch (action.type) {
     case 'FOO':
       return { ...state, foo: action.payload }
@@ -12,4 +11,9 @@ const reducer = (state = { foo: 'bar' }, action) => {
   }
 }
 
-export default () => createStore(reducer, applyMiddleware(logger))
+export default (initialState: any = undefined, ...additionalMiddleware: any) =>
+  createStore(
+    reducer,
+    initialState,
+    applyMiddleware(logger, ...additionalMiddleware)
+  )
