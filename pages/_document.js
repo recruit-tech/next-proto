@@ -1,8 +1,12 @@
 /* @flow */
 import React from 'react'
-require('isomorphic-fetch')
 import Document, { Head, Main, NextScript } from 'next/document'
-import flush from 'styled-jsx/server'
+// import flush from 'styled-jsx/server'
+import Router from 'next/router'
+import applyScrollRestore from 'next-scroll-restore'
+
+// Wrap original onRouteChangeComplete
+applyScrollRestore({ addTransitionHook: Router.onRouteChangeComplete })
 
 export default class MyDocument extends Document {
   // static async getInitialProps ({ renderPage }) {

@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import Link from 'next/link'
-import Header from '../components/Header'
+import Layout from '../components/Layout'
 
 export default class Async extends React.Component {
   props: {
@@ -17,11 +17,10 @@ export default class Async extends React.Component {
 
   render() {
     return (
-      <div>
-        <Header />
+      <Layout>
         Welcome to next.js! {this.props.stargazers_count}
         <div>Hello World. <Link href="/about"><a>About</a></Link></div>
-      </div>
+      </Layout>
     )
   }
 }
