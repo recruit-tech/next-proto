@@ -47,25 +47,33 @@ const app = next({ dev: process.env.NODE_ENV !== 'production' })
 ;(async () => {
   await app.prepare()
 
+  server.post('/auth/logged_in', (req, res) => {
+    res.status(200)
+    res.send({ logged_in: !!req.user })
+    res.end()
+    return
+  })
+
   server.post(
     '/auth/signin',
     passport.authenticate('local', { failureRedirect: '/login' }),
     (req, res) => {
-      console.log(Object.keys(req))
-      console.log('login passed')
+      // console.log(Object.keys(req))
+      // console.log('login passed')
       res.redirect('/')
     }
   )
 
   const handler = routes.getRequestHandler(app)
   server.get('*', (req, res) => {
-    if (req.headers.cookie) {
-      const cookies = new Cookie(req.headers.cookie)
-      cookies.set('v', '1')
-      console.log(cookies)
-    }
+    // console.log(req.user)
+    // if (req.headers.cookie) {
+    //   const cookies = new Cookie(req.headers.cookie)
+    // cookies.set('v', '1')
+    // console.log(cookies)
+    // }
 
-    console.log('handle by next')
+    // console.log('handle by next')
     return handler(req, res)
   })
 
