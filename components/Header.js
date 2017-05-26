@@ -12,6 +12,27 @@ export default function Header() {
       <Link route="page-2"><a>Page-2</a></Link>
       /
       <Link route="scroll"><a>Scroll</a></Link>
+      /
+      <Link route="login"><a>Login</a></Link>
+      <hr />
+
+      <button
+        onClick={async () => {
+          const data = new FormData()
+          data.append('username', 'mizchi')
+          data.append('password', 'password')
+          const res = await fetch('/auth/signin', {
+            method: 'post',
+            body: data
+          })
+          const text = await res.text()
+          console.log(text)
+        }}
+      >
+        sign in
+      </button>
+      <hr />
+
     </header>
   )
 }
